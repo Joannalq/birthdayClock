@@ -4,6 +4,10 @@ function countDown(){
     request.onreadystatechange = function(){
         if(request.readyState == 4 && request.status == 200){
             var javaObj = JSON.parse(request.response);
+            var allkeys = Object.keys(javaObj);
+            var alldate = allkeys.forEach(function(item){
+                alert(javaObj[item]);
+            });
             var month = javaObj.month;
             var day = javaObj.day;
             let now = new Date();
@@ -33,11 +37,11 @@ function countDown(){
             document.getElementById("seconds").innerText = s;
             setTimeout(countDown, 1000);
 
-            if (d!=0){
-                document.getElementById("birthdayName").innerHTML = "Still have "+d+"days before "+javaObj.name + " birthday."
-            }else{
-                document.getElementById("birthdayName").innerHTML = "Today is "+javaObj.name+" birthday."
-            }
+            // if (d!=0){
+            //     document.getElementById("birthdayName").innerHTML = "Still have "+d+"days before "+javaObj.name + " birthday."
+            // }else{
+            //     document.getElementById("birthdayName").innerHTML = "Today is "+javaObj.name+" birthday."
+            // }
 
         }
     }
