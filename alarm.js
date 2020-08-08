@@ -13,6 +13,7 @@ function countDown(){
             let currentTime = now.getTime();
             let distanceTime = [];
             alldate.forEach((item)=>{
+                console.log(item.split(" ")[1]);
                 let eventDate = new Date(now.getFullYear(), item.split(" ")[0], item.split(" ")[1]);
                 let eventTime = eventDate.getTime();
                 let restTime = eventTime - currentTime;
@@ -20,6 +21,9 @@ function countDown(){
             });
             let positive = distanceTime.filter((item)=>{return (item>=0);})
             let minimumTime = Math.min(...positive);
+            let miniDate = new Date(minimumTime);
+            let month = miniDate.getMonth();
+            // console.log(month);
           
             let s = Math.floor(minimumTime/1000);
             let m = Math.floor(s/60);
