@@ -9,8 +9,6 @@ function countDown(){
             allkeys.forEach(function(item){
                 alldate.push(javaObj[item]);
             });
-            let month = javaObj.month;
-            let day = javaObj.day;
             let now = new Date();
             let currentTime = now.getTime();
             let distanceTime = [];
